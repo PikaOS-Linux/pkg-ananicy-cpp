@@ -8,13 +8,9 @@ export DH_VERBOSE = 1
 
 ## Source directory, called upon by $(srcdir)
 srcdir = $(shell debian/scripts/get_pwd.sh)
-## The Root of package number one, called upon by $(pkgdir1)
-pkgdir1 = $(srcdir)/debian/pkgdir1
-## The Root of package number two, you can add as many of these as you like
-pkgdir2 = $(srcdir)/debian/pkgdir2
 
 ## If building a singular package you can remove the number, and as you guessed you call upon it with $(pkgdir)
-# pkgdir = $(srcdir)/debian/pkgdir
+pkgdir = $(srcdir)/debian/ananicy-cpp
 
 ## === End end of region ===
 
@@ -76,7 +72,11 @@ pkgdir2 = $(srcdir)/debian/pkgdir2
 override_dh_auto_configure:
 	./install-deps.sh && ./configure.sh --enable_systemd && ./build.sh
 	cmake --install build/RelWithDebInfo --component Runtime
-	
+
+override_dh_auto_install:
+	install(TARGETS ananicy-cpp RUNTIME DESTINATION $(pkgdir)/usr/bin/ COMPONENT Runtime)
+	install(FILES $(srcdir)/ananicy-cpp.service DESTINATION $(pkgdir)/usr/lib/systemd/system/ COMPONENT Runtime)
+
 ## === End end of region ===
 
 ## This here will start the build:
