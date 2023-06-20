@@ -1,5 +1,5 @@
-upstream-name (pkgver-pkgrel) distro_codename; urgency=medium
+ananicy-cpp (1.0.1-99pika1) lunar; urgency=medium
 
-  * Initial release. (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+  * Initial release.
 
  -- ferreo <harderthanfire@gmail.com>  Wed, 18 Jan 2023 21:48:14 +0000
