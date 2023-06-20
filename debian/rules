@@ -71,6 +71,8 @@ pkgdir = $(srcdir)/debian/ananicy-cpp
 
 override_dh_auto_configure:
 	./install-deps.sh && ./configure.sh --enable_systemd --prefix=$(pkgdir)/usr/ && ./build.sh
+	
+override_dh_auto_install:
 	cmake --install build/RelWithDebInfo --component Runtime
 
 ## === End end of region ===
