@@ -74,12 +74,9 @@ pkgdir2 = $(srcdir)/debian/pkgdir2
 #		cp $(srcdir)/pikman $(pkgdir1)/usr/bin/
 
 override_dh_auto_configure:
-        dh_auto_configure -- -GNinja -DENABLE_SYSTEMD=ON -DUSE_BPF_PROC_IMPL=ON
-
+	dh_auto_configure -- -GNinja -DENABLE_SYSTEMD=ON -DUSE_BPF_PROC_IMPL=ON
 
 ## === End end of region ===
-
-
 
 ## This here will start the build:
 %:
