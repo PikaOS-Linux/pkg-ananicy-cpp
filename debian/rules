@@ -74,7 +74,7 @@ pkgdir2 = $(srcdir)/debian/pkgdir2
 #		cp $(srcdir)/pikman $(pkgdir1)/usr/bin/
 
 override_dh_auto_configure:
-	env USE_BPF=ON ./install-deps.sh && ./configure.sh --enable_systemd --use_bpf_proc && ./build.sh
+	./install-deps.sh && ./configure.sh --enable_systemd && ./build.sh
 	cmake --install build/RelWithDebInfo --component Runtime
 	
 ## === End end of region ===
