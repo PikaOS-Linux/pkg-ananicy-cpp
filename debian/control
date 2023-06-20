@@ -1,19 +1,18 @@
-Source: upstream-name
-Section: admin
+Source: ananicy-cpp
+Section: main
 Priority: optional
-Maintainer: name <email>
+Maintainer: ferrreo <harderthanfire@gmail.com>
 Standards-Version: 4.6.1
-Build-Depends: debhelper-compat (= 13)
+Build-Depends: debhelper-compat (= 13),
+               git,
+               cmake,
+               build-essential,
+               g++,
+               libsystemd-dev
 Rules-Requires-Root: no
 
-Package: pkgname1
+Package: ananicy-cpp
 Architecture: linux-any
-# Delete any of these lines if un-used
-Depends: ${misc:Depends}, depends
-Recommends: high priority optdepends
-Conflicts: conflicts
-Suggests: low priority optdepends
-Breaks: also conflicts!?
-Provides: provides
-#
-Description: pkgdesc
+Depends: ${misc:Depends}
+Provides: ananicy-cpp
+Description: Sets nice levels based on profiles
