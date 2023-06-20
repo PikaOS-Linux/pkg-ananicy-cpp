@@ -70,7 +70,7 @@ pkgdir = $(srcdir)/debian/ananicy-cpp
 #		cp $(srcdir)/pikman $(pkgdir1)/usr/bin/
 
 override_dh_auto_configure:
-	./install-deps.sh && ./configure.sh --enable_systemd --prefix=$(pkgdir)/ && ./build.sh
+	./install-deps.sh && ./configure.sh --enable_systemd --prefix=$(pkgdir)/usr/ && ./build.sh
 	cmake --install build/RelWithDebInfo --component Runtime
 
 ## === End end of region ===
