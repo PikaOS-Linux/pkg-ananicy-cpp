@@ -73,9 +73,10 @@ pkgdir2 = $(srcdir)/debian/pkgdir2
 #		mkdir -p $(pkgdir1)/usr/bin
 #		cp $(srcdir)/pikman $(pkgdir1)/usr/bin/
 
-override_dh_auto_configure:
-	dh_auto_configure -- -GNinja -DENABLE_SYSTEMD=ON -DUSE_BPF_PROC_IMPL=OFF
-
+override_dh_build:
+	env USE_BPF=ON ./install-deps.sh && ./configure.sh --enable_systemd --use_bpf_proc && ./build.sh
+override_dh_install:
+	sudo cmake --install build/RelWithDebInfo --component Runtime
 ## === End end of region ===
 
 ## This here will start the build:
